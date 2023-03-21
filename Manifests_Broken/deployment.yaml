@@ -1,9 +1,9 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clo835-mock
   labels:
-    appname: node-app-deployment
+    appname: node-app-replicaset
     component: frontend
 spec:
   selector:
@@ -13,11 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        appname: node-app-pod
+        appname: node-app-replicaset
         component: frontend
     spec:
       containers:
       - name: node-app
-        image: myappimage:v1.0
+        image: 634809228531.dkr.ecr.us-east-1.amazonaws.com/db_mysql:v0.1
         ports:
-        - containerPort: 5000
+        - containerPort: 8081
